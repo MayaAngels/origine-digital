@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { getAiDecision } from '@/lib/services/ai-mock';
+import { getAiDecision } from '../../../lib/services/ai-mock';
 
 export async function POST(req: NextRequest) {
     try {
