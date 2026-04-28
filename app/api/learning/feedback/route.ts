@@ -1,7 +1,7 @@
 // app/api/learning/feedback/route.ts
 import { NextRequest, NextResponse } from 'next/server';
-import { recordFeedback, getPastFeedback } from '@/lib/learning/learning-mock';
-import { getClientByApiKey } from '@/lib/multi-tenant/client-manager';
+import { recordFeedback, getPastFeedback } from '../../../lib/learning/learning-mock';
+import { getClientByApiKey } from '../../../lib/multi-tenant/client-manager';
 
 export async function POST(req: NextRequest) {
     const authHeader = req.headers.get('authorization');
