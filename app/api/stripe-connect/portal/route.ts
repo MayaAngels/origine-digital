@@ -1,7 +1,7 @@
 // app/api/stripe-connect/portal/route.ts
 import { NextRequest, NextResponse } from 'next/server';
-import { createCustomerPortalSession } from '@/lib/services/stripe-connect';
-import { getClientByApiKey } from '@/lib/multi-tenant/client-manager';
+import { createCustomerPortalSession } from '../../../lib/services/stripe-connect';
+import { getClientByApiKey } from '../../../lib/multi-tenant/client-manager';
 
 export async function GET(req: NextRequest) {
     try {
