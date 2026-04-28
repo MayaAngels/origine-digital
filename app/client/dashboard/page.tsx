@@ -1,8 +1,8 @@
 ﻿// app/client/dashboard/page.tsx
 'use client';
 import { useEffect, useState } from 'react';
-import { useClientAuth } from '../../components/client/ClientAuthProvider';
-import { getDashboardStats } from '../../lib/client/api';
+import { useClientAuth } from '../../../../components/client/ClientAuthProvider';
+import { getDashboardStats } from '../../../../lib/client/api';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 
