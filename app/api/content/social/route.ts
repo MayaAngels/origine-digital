@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import fs from 'fs/promises';
 import path from 'path';
-import { getClientByApiKey } from '@/lib/multi-tenant/client-manager';
+import { getClientByApiKey } from '../../../lib/multi-tenant/client-manager';
 
 const SOCIAL_DIR = path.join(process.cwd(), 'data', 'content', 'social');
 
