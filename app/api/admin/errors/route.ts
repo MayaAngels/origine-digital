@@ -1,6 +1,6 @@
 ﻿// app/api/admin/errors/route.ts
 import { NextResponse } from 'next/server';
-import { ErrorTracker } from '@/lib/infrastructure/error-tracker';
+import { ErrorTracker } from '../../../lib/infrastructure/error-tracker';
 
 export async function GET() {
     const errors = await ErrorTracker.getRecentErrors(50);
