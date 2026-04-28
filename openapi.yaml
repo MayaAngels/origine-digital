@@ -1,0 +1,137 @@
+﻿openapi: 3.0.0
+info:
+  title: ORIGINE.DIGITAL API
+  version: 1.0.0
+  description: Autonomous digital shop API for clients and third‑party integrators.
+servers:
+  - url: https://your-domain.com/api
+    description: Production server
+  - url: http://localhost:3000/api
+    description: Development server
+
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: API Key
+security:
+  - bearerAuth: []
+
+paths:
+  /health:
+    get:
+      summary: Check service health
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              example: { status: "healthy", timestamp: "2025-01-01T00:00:00Z" }
+
+  /clients/register:
+    post:
+      summary: Register a new client (tenant)
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name: { type: string }
+                email: { type: string }
+      responses:
+        '200':
+          description: Client created, returns API key
+          content:
+            application/json:
+              example: { success: true, client: { id: "123", name: "Acme", apiKey: "od_..." } }
+
+  /dashboard/marketing:
+    get:
+      summary: Get marketing statistics for the authenticated client
+      responses:
+        '200':
+          description: Stats object
+
+  /content/blog:
+    get:
+      summary: List blog articles
+    post:
+      summary: Generate a new blog article
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                topic: { type: string }
+                keywords: { type: string }
+
+  /content/social:
+    get:
+      summary: List social posts
+    post:
+      summary: Generate a social post
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                topic: { type: string }
+                platform: { type: string, enum: [twitter, linkedin, facebook, instagram] }
+                tone: { type: string }
+
+  /campaign/email:
+    post:
+      summary: Send an email campaign
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                to: { type: string }
+                type: { type: string }
+                context: { type: object }
+
+  /stripe-connect/create-subscription:
+    post:
+      summary: Create a Stripe subscription for the client (requires Stripe price ID)
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                priceId: { type: string }
+      responses:
+        '200':
+          description: Returns subscription client secret for payment.
+
+  /stripe-connect/portal:
+    get:
+      summary: Get Stripe Customer Portal URL for managing subscription
+      responses:
+        '200':
+          description: Returns portal URL.
+
+security:
+  - bearerAuth: []
+
+tags:
+  - name: Client
+  - name: Content
+  - name: Billing
+
+
+
+
+
+

@@ -1,0 +1,37 @@
+﻿# Python
+__pycache__/
+*.py[cod]
+*.so
+.Python
+.env
+venv/
+env/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# Logs
+logs/
+*.log
+
+# Data
+data/
+*.db
+
+# Secrets
+*.key
+*.pem
+.secrets/
+
+# OS
+.DS_Store
+Thumbs.db
+.env.local
+.env.vercel
+.env.production
+*.env
+!*.env.example
+node_modules
+.vercel
