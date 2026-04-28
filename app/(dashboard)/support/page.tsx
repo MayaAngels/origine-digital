@@ -1,6 +1,6 @@
 "use client";
 
-import { DashboardLayout } from "@/components/dashboard/DashboardLayout";
+import { DashboardLayout } from "../../components/dashboard/DashboardLayout";
 import { MessageCircle, HelpCircle, BookOpen, Mail, Clock, CheckCircle } from "lucide-react";
 
 const faqs = [
