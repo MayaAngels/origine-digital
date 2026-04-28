@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { createCheckoutSession } from '@/lib/services/stripe-mock';
-import { sendEmail } from '@/lib/services/brevo-mock';
+import { createCheckoutSession } from '../../lib/services/stripe-mock';
+import { sendEmail } from '../../lib/services/brevo-mock';
 
 export async function POST(req: NextRequest) {
     try {
