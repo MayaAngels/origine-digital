@@ -2,8 +2,8 @@
 import { NextRequest, NextResponse } from 'next/server';
 import fs from 'fs/promises';
 import path from 'path';
-import { getClientByApiKey } from '@/lib/multi-tenant/client-manager';
-import { SocialAccount } from '@/lib/social/social-mock';
+import { getClientByApiKey } from '../../../lib/multi-tenant/client-manager';
+import { SocialAccount } from '../../../lib/social/social-mock';
 
 async function getAccountsDir(clientId: string): Promise<string> {
     const dir = path.join(process.cwd(), 'data', 'clients_data', clientId, 'social');
