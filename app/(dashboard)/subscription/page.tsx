@@ -1,6 +1,6 @@
 "use client";
 
-import { DashboardLayout } from "@/components/dashboard/DashboardLayout";
+import { DashboardLayout } from "../../components/dashboard/DashboardLayout";
 import { CreditCard, Zap, Crown, TrendingUp, Check } from "lucide-react";
 
 const tiers = [
