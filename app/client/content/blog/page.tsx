@@ -2,7 +2,7 @@
 'use client';
 import { useEffect, useState } from 'react';
 import { useClientAuth } from '../../../../../../../components/client/ClientAuthProvider';
-import { listBlogPosts } from '../../../../../../../../../lib/client/api';
+import { listBlogPosts } from '../../../../../lib/client/api';
 import Link from 'next/link';
 
 export default function BlogListPage() {
