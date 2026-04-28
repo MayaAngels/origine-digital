@@ -1,9 +1,9 @@
 ﻿// app/api/intelligence/verify-stability/route.ts
 import { NextResponse } from 'next/server';
-import { Homeostat } from '@/lib/intelligence-kernel/homeostat';
-import { SymbolicGuardian } from '@/lib/intelligence-kernel/asmi/symbolic-guardian';
-import { MDLHomeostat } from '@/lib/intelligence-kernel/asmi/mdl-homeostat';
-import { CoherenceEngine } from '@/lib/intelligence/coherence';
+import { Homeostat } from '../../../lib/intelligence-kernel/homeostat';
+import { SymbolicGuardian } from '../../../lib/intelligence-kernel/asmi/symbolic-guardian';
+import { MDLHomeostat } from '../../../lib/intelligence-kernel/asmi/mdl-homeostat';
+import { CoherenceEngine } from '../../../lib/intelligence/coherence';
 
 export async function GET() {
     const homeostat = Homeostat.getInstance();
