@@ -1,7 +1,7 @@
 ﻿// app/client/content/blog/page.tsx
 'use client';
 import { useEffect, useState } from 'react';
-import { useClientAuth } from '../../../components/client/ClientAuthProvider';
+import { useClientAuth } from '../../components/client/ClientAuthProvider';
 import { listBlogPosts } from '../../../lib/client/api';
 import Link from 'next/link';
 
