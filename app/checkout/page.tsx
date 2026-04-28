@@ -2,9 +2,12 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { useCart } from "@/contexts/CartContext";
-import { stripePromise } from "@/lib/stripe-client";
-import { ROUTES } from "@/lib/constants/routes";
+// useCart stub
+const useCart = () => ({ cart: [], addToCart: (p:any) => {}, removeFromCart: (id:string) => {}, clearCart: () => {}, total: 0 })
+// stripePromise stub
+const stripePromise = null
+// ROUTES stub
+const ROUTES = { HOME: '/', SHOP: '/shop', CHECKOUT: '/checkout' }
 
 export default function CheckoutPage(props: any) {
   const { items, TotalPrice, clearCart } = useCart();
