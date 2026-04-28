@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { getAiDecision } from '@/lib/services/ai-mock';
-import { storeMemory } from '@/lib/memory-file';
+import { getAiDecision } from '../../../lib/services/ai-mock';
+import { storeMemory } from '../../../lib/memory-file';
 import fs from 'fs/promises';
 import path from 'path';
 
