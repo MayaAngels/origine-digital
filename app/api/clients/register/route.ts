@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { registerClient } from '@/lib/multi-tenant/client-manager';
+import { registerClient } from '../../../lib/multi-tenant/client-manager';
 
 export async function POST(req: NextRequest) {
     try {
