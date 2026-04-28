@@ -1,6 +1,6 @@
 "use client";
 
-import { DashboardLayout } from "@/components/dashboard/DashboardLayout";
+import { DashboardLayout } from "../../components/dashboard/DashboardLayout";
 import { Download, Clock, AlertCircle } from "lucide-react";
 
 const downloads = [
