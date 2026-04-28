@@ -1,7 +1,7 @@
 ﻿// app/client/content/social/new/page.tsx
 'use client';
 import { useState } from 'react';
-import { useClientAuth } from '../../../../../../../../../../../../../../../components/client/ClientAuthProvider';
+import { useClientAuth } from '../../../../../../../../../../components/client/ClientAuthProvider';
 import { generateSocialPost } from '../../../../../../../../../../../../../../../lib/client/api';
 import { useRouter } from 'next/navigation';
 
