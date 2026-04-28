@@ -2,7 +2,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import fs from 'fs/promises';
 import path from 'path';
-import { getClientByApiKey } from '@/lib/multi-tenant/client-manager';
+import { getClientByApiKey } from '../../lib/multi-tenant/client-manager';
 
 export async function GET(req: NextRequest) {
     const authHeader = req.headers.get('authorization');
