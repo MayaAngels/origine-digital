@@ -1,6 +1,6 @@
 ﻿// app/api/intelligence/meta-gradient/route.ts
 import { NextRequest, NextResponse } from 'next/server';
-import { MetaGradientController } from '@/lib/intelligence/q2-meta-gradient/meta-gradient';
+import { MetaGradientController } from '../../../lib/intelligence/q2-meta-gradient/meta-gradient';
 
 const controller = new MetaGradientController();
 
