@@ -1,6 +1,6 @@
 "use client";
 
-import { DashboardLayout } from "@/components/dashboard/DashboardLayout";
+import { DashboardLayout } from "../../components/dashboard/DashboardLayout";
 import { Wallet, Plus, History, ArrowUpRight, ArrowDownRight } from "lucide-react";
 
 const transactions = [
