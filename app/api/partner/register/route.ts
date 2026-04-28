@@ -1,6 +1,6 @@
 // app/api/partner/register/route.ts
 import { NextRequest, NextResponse } from 'next/server'
-import { partnerSystem } from '@/lib/partner/PartnerSystem'
+import { partnerSystem } from '../../../lib/partner/PartnerSystem'
 
 export async function POST(request: NextRequest) {
   try {
