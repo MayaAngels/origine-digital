@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { addNote, getCrmData } from '@/lib/crm';
-import { getClientByApiKey } from '@/lib/multi-tenant/client-manager';
+import { addNote, getCrmData } from '../../../lib/crm';
+import { getClientByApiKey } from '../../../lib/multi-tenant/client-manager';
 
 export async function POST(req: NextRequest) {
     const authHeader = req.headers.get('authorization');
