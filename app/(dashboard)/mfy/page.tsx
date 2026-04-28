@@ -1,7 +1,7 @@
 ﻿// app/(dashboard)/mfy/page.tsx
 "use client";
 
-import { MfyDashboard } from "@/components/mfy/MfyDashboard";
+import { MfyDashboard } from "../../components/mfy/MfyDashboard";
 
 export default function MfyDashboardPage() {
   return (
