@@ -35,6 +35,7 @@
                                         "dom.iterable",
                                         "esnext"
                                     ],
-                            "jsx":  "preserve"
+                            "jsx":  "preserve",
+                            "baseUrl":  "."
                         }
 }
