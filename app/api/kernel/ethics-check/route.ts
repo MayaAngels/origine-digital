@@ -1,7 +1,7 @@
 ﻿// app/api/kernel/ethics-check/route.ts
 import { NextRequest, NextResponse } from 'next/server';
-import { computeEthicalVector } from '@/lib/intelligence-kernel/asmi/ethical-vector';
-import { estimateATE } from '@/lib/intelligence-kernel/asmi/causal-oracle';
+import { computeEthicalVector } from '../../../lib/intelligence-kernel/asmi/ethical-vector';
+import { estimateATE } from '../../../lib/intelligence-kernel/asmi/causal-oracle';
 
 export async function POST(req: NextRequest) {
     const { action, context } = await req.json();
