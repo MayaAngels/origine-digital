@@ -1,0 +1,4 @@
+{
+  "version": "1.0",
+  "rules": [{"id":"rule_1","condition":"action.type === 'charge' && action.amount > 0 && context.result.confirmed === false","message":"Cobrança sem resultado confirmado"}]
+}
