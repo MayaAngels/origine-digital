@@ -1,7 +1,7 @@
 ﻿// app/client/content/social/page.tsx
 'use client';
 import { useEffect, useState } from 'react';
-import { useClientAuth } from '../../../../../../../../../components/client/ClientAuthProvider';
+import { useClientAuth } from '../../../../components/client/ClientAuthProvider';
 import { listSocialPosts } from '../../../../../../../../../lib/client/api';
 import Link from 'next/link';
 
