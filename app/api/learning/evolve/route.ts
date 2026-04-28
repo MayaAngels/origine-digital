@@ -2,8 +2,8 @@
 import { NextRequest, NextResponse } from 'next/server';
 import fs from 'fs/promises';
 import path from 'path';
-import { getClientByApiKey } from '@/lib/multi-tenant/client-manager';
-import { getExpectedOutcome } from '@/lib/learning/learning-mock';
+import { getClientByApiKey } from '../../../lib/multi-tenant/client-manager';
+import { getExpectedOutcome } from '../../../lib/learning/learning-mock';
 
 const SANDBOX_DIR = path.join(process.cwd(), 'data', 'sandbox');
 
