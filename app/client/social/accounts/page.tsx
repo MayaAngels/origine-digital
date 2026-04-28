@@ -1,7 +1,7 @@
 ﻿// app/client/social/accounts/page.tsx
 'use client';
 import { useEffect, useState } from 'react';
-import { useClientAuth } from '@/components/client/ClientAuthProvider';
+import { useClientAuth } from '../../../components/client/ClientAuthProvider';
 import { useRouter } from 'next/navigation';
 
 export default function SocialAccountsPage() {
