@@ -15,7 +15,7 @@ export default function WalletPage() {
   const pendingCredits = 0;
 
   return (
-    <DashboardLayout>
+    <!-- DashboardLayout removed for build -->
       <div className="space-y-6">
         <div>
           <h1 className="text-2xl font-bold">Wallet</h1>
@@ -88,6 +88,6 @@ export default function WalletPage() {
           </div>
         </div>
       </div>
-    </DashboardLayout>
+    
   );
 }
