@@ -1,7 +1,7 @@
 // app/api/stripe-connect/create-subscription/route.ts
 import { NextRequest, NextResponse } from 'next/server';
-import { createOrGetCustomer, createSubscription } from '@/lib/services/stripe-connect';
-import { getClientByApiKey } from '@/lib/multi-tenant/client-manager';
+import { createOrGetCustomer, createSubscription } from '../../../lib/services/stripe-connect';
+import { getClientByApiKey } from '../../../lib/multi-tenant/client-manager';
 
 export async function POST(req: NextRequest) {
     try {
