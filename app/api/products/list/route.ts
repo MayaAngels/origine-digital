@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { listProducts } from '@/lib/product-generator';
-import { getClientByApiKey } from '@/lib/multi-tenant/client-manager';
+import { listProducts } from '../../../lib/product-generator';
+import { getClientByApiKey } from '../../../lib/multi-tenant/client-manager';
 
 export async function GET(req: NextRequest) {
     const authHeader = req.headers.get('authorization');
