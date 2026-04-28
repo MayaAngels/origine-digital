@@ -1,0 +1,347 @@
+﻿generator client {
+provider = "prisma-client-js"
+}
+
+datasource db {
+provider = "postgresql"
+
+}
+
+model User {
+id String @id @default(cuid())
+email String @unique
+name String?
+passwordHash String?
+role UserRole @default(CUSTOMER)
+isActive Boolean @default(true)
+createdAt DateTime @default(now())
+updatedAt DateTime @updatedAt
+orders Order[]
+customRequests CustomRequest[]
+cart Cart?
+events EventLog[]
+downloadAccess DownloadAccess[]
+}
+
+enum UserRole {
+CUSTOMER
+ADMIN
+PROVIDER
+}
+
+model Product {
+id String @id @default(cuid())
+title String
+slug String @unique
+shortDescription String
+longDescription String?
+price Int
+compareAtPrice Int?
+status ProductStatus @default(DRAFT)
+featured Boolean @default(false)
+categoryId String?
+thumbnailUrl String?
+deliveryType DeliveryType @default(INSTANT)
+seoTitle String?
+seoDescription String?
+createdAt DateTime @default(now())
+updatedAt DateTime @updatedAt
+category ProductCategory? @relation(fields: [categoryId], references: [id])
+assets ProductAsset[]
+orderItems OrderItem[]
+}
+
+enum ProductStatus {
+DRAFT
+ACTIVE
+ARCHIVED
+}
+
+enum DeliveryType {
+INSTANT
+MANUAL
+HYBRID
+}
+
+model ProductCategory {
+id String @id @default(cuid())
+name String @unique
+slug String @unique
+description String?
+isActive Boolean @default(true)
+createdAt DateTime @default(now())
+products Product[]
+}
+
+model ProductAsset {
+id String @id @default(cuid())
+productId String
+fileName String
+fileUrl String
+fileType String
+version Int @default(1)
+isPrimary Boolean @default(false)
+createdAt DateTime @default(now())
+product Product @relation(fields: [productId], references: [id])
+}
+
+model Service {
+id String @id @default(cuid())
+title String
+slug String @unique
+shortDescription String
+longDescription String?
+startingPrice Int?
+fixedPrice Int?
+status ServiceStatus @default(DRAFT)
+featured Boolean @default(false)
+categoryId String?
+deliveryType ServiceDeliveryType @default(REQUEST)
+turnaroundText String?
+intakeRequired Boolean @default(true)
+seoTitle String?
+seoDescription String?
+createdAt DateTime @default(now())
+updatedAt DateTime @updatedAt
+category ServiceCategory? @relation(fields: [categoryId], references: [id])
+orderItems OrderItem[]
+}
+
+enum ServiceStatus {
+DRAFT
+ACTIVE
+ARCHIVED
+}
+
+enum ServiceDeliveryType {
+REQUEST
+BOOKING
+PURCHASE
+}
+
+model ServiceCategory {
+id String @id @default(cuid())
+name String @unique
+slug String @unique
+description String?
+isActive Boolean @default(true)
+createdAt DateTime @default(now())
+services Service[]
+}
+
+model CustomRequest {
+id String @id @default(cuid())
+userId String?
+name String
+email String
+businessType String?
+projectType String?
+budgetRange String?
+timeline String?
+summary String?
+requirements String?
+status RequestStatus @default(NEW)
+internalNotes String?
+createdAt DateTime @default(now())
+updatedAt DateTime @updatedAt
+user User? @relation(fields: [userId], references: [id])
+}
+
+enum RequestStatus {
+NEW
+REVIEWING
+QUALIFIED
+QUOTED
+CLOSED
+}
+
+model Cart {
+id String @id @default(cuid())
+userId String? @unique
+sessionId String?
+createdAt DateTime @default(now())
+updatedAt DateTime @updatedAt
+user User? @relation(fields: [userId], references: [id])
+items CartItem[]
+}
+
+model CartItem {
+id String @id @default(cuid())
+cartId String
+itemType CartItemType
+productId String?
+serviceId String?
+quantity Int @default(1)
+unitPrice Int
+createdAt DateTime @default(now())
+cart Cart @relation(fields: [cartId], references: [id])
+product Product? @relation(fields: [productId], references: [id])
+service Service? @relation(fields: [serviceId], references: [id])
+}
+
+enum CartItemType {
+PRODUCT
+SERVICE
+}
+
+model Order {
+id String @id @default(cuid())
+userId String?
+email String
+orderNumber String @unique
+status OrderStatus @default(PENDING)
+subtotal Int
+total Int
+currency String @default("EUR")
+paymentStatus PaymentStatus @default(PENDING)
+fulfillmentStatus FulfillmentStatus @default(PENDING)
+createdAt DateTime @default(now())
+updatedAt DateTime @updatedAt
+user User? @relation(fields: [userId], references: [id])
+items OrderItem[]
+payments Payment[]
+}
+
+enum OrderStatus {
+PENDING
+PAID
+FULFILLING
+COMPLETED
+CANCELLED
+}
+
+enum PaymentStatus {
+PENDING
+PAID
+FAILED
+REFUNDED
+}
+
+enum FulfillmentStatus {
+PENDING
+READY
+DELIVERED
+IN_PROGRESS
+COMPLETED
+}
+
+model OrderItem {
+id String @id @default(cuid())
+orderId String
+itemType CartItemType
+productId String?
+serviceId String?
+titleSnapshot String
+priceSnapshot Int
+quantity Int
+fulfillmentStatus FulfillmentStatus @default(PENDING)
+createdAt DateTime @default(now())
+order Order @relation(fields: [orderId], references: [id])
+product Product? @relation(fields: [productId], references: [id])
+service Service? @relation(fields: [serviceId], references: [id])
+deliveries Delivery[]
+}
+
+model Payment {
+id String @id @default(cuid())
+orderId String
+provider String @default("STRIPE")
+providerPaymentId String
+amount Int
+currency String @default("EUR")
+status String
+paidAt DateTime?
+createdAt DateTime @default(now())
+order Order @relation(fields: [orderId], references: [id])
+}
+
+model Delivery {
+id String @id @default(cuid())
+orderItemId String
+deliveryType String
+status String @default("PENDING")
+note String?
+createdAt DateTime @default(now())
+updatedAt DateTime @updatedAt
+orderItem OrderItem @relation(fields: [orderItemId], references: [id])
+}
+
+model DownloadAccess {
+id String @id @default(cuid())
+userId String
+productId String
+orderItemId String
+accessUrl String
+expiresAt DateTime?
+downloadCount Int @default(0)
+createdAt DateTime @default(now())
+user User @relation(fields: [userId], references: [id])
+product Product @relation(fields: [productId], references: [id])
+}
+
+model EventLog {
+id String @id @default(cuid())
+userId String?
+sessionId String?
+eventName String
+entityType String?
+entityId String?
+metadataJson Json?
+createdAt DateTime @default(now())
+user User? @relation(fields: [userId], references: [id])
+}
+
+model Lead {
+id String @id @default(cuid())
+name String
+email String
+source String?
+interestType String?
+notes String?
+status String @default("NEW")
+createdAt DateTime @default(now())
+updatedAt DateTime @updatedAt
+}
+
+model FAQItem {
+id String @id @default(cuid())
+question String
+answer String
+category String?
+isActive Boolean @default(true)
+sortOrder Int?
+createdAt DateTime @default(now())
+updatedAt DateTime @updatedAt
+}
+
+model ContentBlock {
+id String @id @default(cuid())
+key String @unique
+title String?
+body String?
+type String?
+isActive Boolean @default(true)
+updatedAt DateTime @updatedAt
+}
+model Memory {
+  id          String   @id @default(cuid())
+  content     String
+  embedding   Unsupported("vector(1536)")?   // pgvector
+  metadata    Json?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@index([createdAt])
+}
+
+
+model AIDecision {
+  id          String   @id @default(cuid())
+  action      String
+  context     Json
+  expectedRoi Float?
+  risk        Float?
+  executedAt  DateTime @default(now())
+  outcome     Json?
+}
+
