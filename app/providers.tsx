@@ -1,38 +1,30 @@
-'use client';
+"use client";
 
-import React from 'react';
+import { CartProvider as CartProviderComponent } from "@/components/cart/CartProvider";
+import { SessionProvider } from "@/components/auth/SessionProvider";
+import { useEffect, useState } from "react";
 
-const CartContext = React.createContext({
-    cart: [] as any[],
-    addToCart: (item: any) => {},
-    removeFromCart: (id: string) => {},
-    clearCart: () => {},
-    total: 0,
-});
-
-function CartProviderComponent({ children }: { children: React.ReactNode }) {
-    const [cart, setCart] = React.useState<any[]>([]);
-    const addToCart = (item: any) => setCart([...cart, item]);
-    const removeFromCart = (id: string) => setCart(cart.filter(i => i.id !== id));
-    const clearCart = () => setCart([]);
-    const total = cart.reduce((sum, i) => sum + (i.price || 0), 0);
-
-    return (
-        <CartContext.Provider value={{ cart, addToCart, removeFromCart, clearCart, total }}>
-            {children}
-        </CartContext.Provider>
-    );
-}
-
-export function useCart() {
-    return React.useContext(CartContext);
-}
-
-// The wrapper that layout.tsx imports
 export default function Providers({ children }: { children: React.ReactNode }) {
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  // Return without auth during SSR
+  if (!mounted) {
     return (
-        <CartProviderComponent>
-            {children}
-        </CartProviderComponent>
+      <CartProviderComponent>
+        {children}
+      </CartProviderComponent>
     );
+  }
+
+  return (
+    <SessionProvider>
+      <CartProviderComponent>
+        {children}
+      </CartProviderComponent>
+    </SessionProvider>
+  );
 }
