@@ -1,5 +1,5 @@
 ﻿// lib/intelligence/acim/synthesizer.ts
-import { AIAdapter } from '@/lib/intelligence/broker/adapter-base';
+import { AIAdapter } from '../../lib/intelligence/broker/adapter-base';
 
 export async function synthesizeImprovement(capability: string, competitor: string) {
     // Use the broker to generate a superior version of the capability
