@@ -2,6 +2,8 @@
 
 import { Download, Clock, AlertCircle } from "lucide-react";
 
+export const dynamic = 'force-dynamic'
+
 const downloads = [
   { id: 1, name: "Business Operations Starter Kit", date: "2025-04-10", size: "2.5 MB", expires: "2025-05-10", downloadsLeft: 5 },
   { id: 2, name: "Client Onboarding Pack", date: "2025-04-05", size: "1.8 MB", expires: "2025-05-05", downloadsLeft: 5 },
