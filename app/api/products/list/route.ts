@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { listProducts } from '../../../lib/product-generator';
+
 const getClientByApiKey = async () => ({ id: '1', name: 'D', email: 'd@t.ie' });
 
 export async function GET(req: NextRequest) {
