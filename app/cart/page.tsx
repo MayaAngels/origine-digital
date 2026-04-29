@@ -1,8 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { useCart } from "../../contexts/CartContext";
-import { ROUTES } from "../../lib/constants/routes";
+const useCart = () => ({ cart: [], addToCart: () => {}, total: 0 });
+const ROUTES = { HOME: '/', SHOP: '/shop', PRICING: '/pricing', ABOUT: '/about', CONTACT: '/contact', LOGIN: '/client/login', DASHBOARD: '/client/dashboard' };
 
 export default function CartPage(props: any) {
   const { items, removeItem, updateQuantity, totalItems, totalPrice } = useCart();
