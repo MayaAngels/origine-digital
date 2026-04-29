@@ -1,5 +1,5 @@
 ﻿// lib/social-feed/feed-ranker.ts
-import { BetaBandit } from '@/lib/intelligence/bandit';
+import { BetaBandit } from '../lib/intelligence/bandit';
 
 export class FeedRanker {
     private bandit: BetaBandit;
