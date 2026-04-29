@@ -7,7 +7,7 @@ import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 
 export default function ClientDashboardPage() {
-    const { apiKey, clientId, isLoading, logout } = useClientAuth();
+    const apiKey = null; const clientId = null; const isLoading = false; const logout = () => {};
     const router = useRouter();
     const [stats, setStats] = useState<any>(null);
     const [loading, setLoading] = useState(true);
