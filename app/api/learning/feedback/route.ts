@@ -1,6 +1,6 @@
 // app/api/learning/feedback/route.ts
 import { NextRequest, NextResponse } from 'next/server';
-import { recordFeedback, getPastFeedback } from '../../../lib/learning/learning-mock';
+const LearningMock = { learn: async () => {} };
 const getClientByApiKey = async () => ({ id: '1', name: 'D', email: 'd@t.ie' });
 
 export async function POST(req: NextRequest) {
