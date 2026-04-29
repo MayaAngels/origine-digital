@@ -1,9 +1,9 @@
 ﻿"use client";
 
 import { useState } from "react";
-import { services, serviceCategories } from "@/lib/services/data";
-import { ServiceCard } from "@/components/services/ServiceCard";
-import { ServiceFilters } from "@/components/services/ServiceFilters";
+import { services, serviceCategories } from "../lib/services/data";
+import { ServiceCard } from "../components/services/ServiceCard";
+import { ServiceFilters } from "../components/services/ServiceFilters";
 
 export default function ServicesPage() {
   const [selectedCategory, setSelectedCategory] = useState("All");
