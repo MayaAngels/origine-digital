@@ -1,2 +1,1 @@
-const { defineConfig } = {};
-module.exports = defineConfig({});
+// ESLint config — using Next.js defaults
