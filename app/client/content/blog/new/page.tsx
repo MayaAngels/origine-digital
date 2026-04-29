@@ -1,8 +1,8 @@
 ﻿// app/client/content/blog/new/page.tsx
 'use client';
 import { useState } from 'react';
-import { useClientAuth } from '../../../../components/client/ClientAuthProvider';
-import { generateBlogPost } from '../../../../lib/client/api';
+import { useClientAuth } from '../../../../../components/client/ClientAuthProvider';
+import { generateBlogPost } from '../../../../../lib/client/api';
 import { useRouter } from 'next/navigation';
 
 export default function NewBlogPage() {
