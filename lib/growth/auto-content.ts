@@ -1,5 +1,5 @@
 ﻿// lib/growth/auto-content.ts
-import { generateBlogPost, generateSocialPost } from '@/lib/services/ai-mock';
+import { generateBlogPost, generateSocialPost } from '../lib/services/ai-mock';
 
 export async function runAcquisitionLoop() {
     // 1. Identify top‑performing keywords from market intel
