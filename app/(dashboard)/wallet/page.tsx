@@ -2,6 +2,8 @@
 
 import { Wallet, Plus, History, ArrowUpRight, ArrowDownRight } from "lucide-react";
 
+export const dynamic = 'force-dynamic'
+
 const transactions = [
   { id: 1, type: "deposit", amount: 50, description: "Initial deposit", date: "2025-04-01", status: "completed" },
   { id: 2, type: "cashback", amount: 7.90, description: "10% cashback on April payment", date: "2025-04-10", status: "completed" },
