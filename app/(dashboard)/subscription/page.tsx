@@ -12,8 +12,7 @@ const tiers = [
 
 export default function SubscriptionPage() {
   return (
-    <!-- DashboardLayout removed for build -->
-      <div className="space-y-6">
+    <div className="space-y-6">
         <div>
           <h1 className="text-2xl font-bold">Subscription</h1>
           <p className="text-gray-500">Manage your plan and billing</p>
