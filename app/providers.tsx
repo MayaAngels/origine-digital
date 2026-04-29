@@ -1,8 +1,8 @@
-import { SyntheticAgent } from './components/agent/SyntheticAgent'
+import { SyntheticAgent } from '../components/agent/SyntheticAgent'
 "use client";
 
 import { ReactNode } from "react";
-import { CartProvider } from "./contexts/CartContext";
+import { CartProvider } from "../contexts/CartContext";
 
 type ProvidersProps = {
   children: ReactNode;
