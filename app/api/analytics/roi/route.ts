@@ -1,8 +1,8 @@
 ﻿// app/api/analytics/roi/route.ts
 import { NextRequest, NextResponse } from 'next/server';
-import { getClientByApiKey } from '../../../lib/multi-tenant/client-manager';
-import { CausalOracle } from '../../../lib/intelligence/causal-oracle';
-import { EthicalVector } from '../../../lib/intelligence/ethical-vector';
+import { getClientByApiKey } from '../../../../lib/multi-tenant/client-manager';
+import { CausalOracle } from '../../../../lib/intelligence/causal-oracle';
+import { EthicalVector } from '../../../../lib/intelligence/ethical-vector';
 
 export async function GET(req: NextRequest) {
     const authHeader = req.headers.get('authorization');
