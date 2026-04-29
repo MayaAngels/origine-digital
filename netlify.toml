@@ -1,0 +1,10 @@
+[build]
+  command = "npx next build"
+  publish = ".next"
+
+[build.environment]
+  NEXT_DISABLE_ESLINT = "1"
+  NODE_VERSION = "20"
+
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
