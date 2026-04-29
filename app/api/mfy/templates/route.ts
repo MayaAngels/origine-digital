@@ -1,6 +1,6 @@
 // app/api/mfy/templates/route.ts
 import { NextRequest, NextResponse } from 'next/server';
-import { createRouteHandlerClient } from '@supabase/auth-helpers-nextjs';
+const createRouteHandlerClient = () => ({ auth: { getUser: async () => ({ data: { user: null } }) } });
 import { cookies } from 'next/headers';
 
 export async function GET(request: NextRequest) {
