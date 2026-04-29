@@ -3,7 +3,7 @@
 
 import { MfyDashboard } from "../../components/mfy/MfyDashboard";
 
-export const dynamic = 'force-dynamic'
+export const dynamic = 'force-dynamic';
 
 export default function MfyDashboardPage() {
   return (
