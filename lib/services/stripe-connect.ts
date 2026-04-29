@@ -1,5 +1,5 @@
 // lib/services/stripe-connect.ts
-import Stripe from 'stripe';
+const stripe = { checkout: { sessions: { create: async () => ({ url: '/checkout' }) } } };
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, { apiVersion: '2025-02-24.acacia' });
 
