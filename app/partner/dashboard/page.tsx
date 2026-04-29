@@ -3,10 +3,10 @@
 
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
-import { DashboardMetrics } from "@/components/partner/DashboardMetrics";
-import { WalletBalance } from "@/components/partner/WalletBalance";
-import { TargetProgress } from "@/components/partner/TargetProgress";
-import { PaymentSelector } from "@/components/partner/PaymentSelector";
+import { DashboardMetrics } from "../../components/partner/DashboardMetrics";
+import { WalletBalance } from "../../components/partner/WalletBalance";
+import { TargetProgress } from "../../components/partner/TargetProgress";
+import { PaymentSelector } from "../../components/partner/PaymentSelector";
 
 interface PartnerData {
   id: string
