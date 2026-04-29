@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { getAiDecision } from '../../../lib/services/ai-mock';
-import { sendEmail } from '../../../lib/services/brevo-mock';
-import { storeMemory } from '../../../lib/memory-file';
+const getAiDecision = async () => ({ title: 'T', content: '<p>T</p>' });
+const sendEmail = async () => true;
+const storeMemory = async () => {};
 import fs from 'fs/promises';
 import path from 'path';
 
