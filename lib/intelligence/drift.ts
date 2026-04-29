@@ -1,5 +1,5 @@
 ﻿// lib/intelligence/drift.ts
-import { redis } from '@/lib/infrastructure/self-hosted-redis';
+import { redis } from '../lib/infrastructure/self-hosted-redis';
 
 export class DriftGuard {
     private windowSize = 100;
