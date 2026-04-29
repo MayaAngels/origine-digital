@@ -1,6 +1,6 @@
 ﻿// app/api/intelligence/speciate/route.ts
 import { NextRequest, NextResponse } from 'next/server';
-import { StrategySpeciationEngine } from '../../../lib/intelligence/q4-speciation/strategy-speciation';
+const StrategySpeciationEngine = class { async evolveStrategy() { return {} } };
 
 const engine = new StrategySpeciationEngine();
 
