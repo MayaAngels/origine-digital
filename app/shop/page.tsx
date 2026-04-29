@@ -1,5 +1,5 @@
-﻿import { products } from '@/lib/products/data';
-import { ProductCard } from '@/components/products/ProductCard';
+﻿import { products } from '../lib/products/data';
+import { ProductCard } from '../components/products/ProductCard';
 
 export const metadata = {
     title: 'Shop | Origine.Digital',
