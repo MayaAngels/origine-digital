@@ -20,8 +20,7 @@ const statusColors = {
 
 export default function OrdersPage() {
   return (
-    <!-- DashboardLayout removed for build -->
-      <div className="space-y-6">
+    <div className="space-y-6">
         <div className="flex justify-between items-center">
           <div>
             <h1 className="text-2xl font-bold">Orders</h1>
