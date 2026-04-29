@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { ADMIN_NAV } from "../lib/constants/nav";
+const NAV_ITEMS = [];
 
 export function AdminLayout({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
