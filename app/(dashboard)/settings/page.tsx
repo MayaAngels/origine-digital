@@ -2,7 +2,7 @@
 
 import { User, Bell, Shield, Globe, Mail, Key } from "lucide-react";
 
-export const dynamic = 'force-dynamic'
+export const dynamic = 'force-dynamic';
 
 export default function SettingsPage() {
   return (
