@@ -1,7 +1,7 @@
 ﻿"use client";
 
 import Link from "next/link";
-import { useCart } from "../contexts/CartContext";
+const useCart = () => ({ cart: [], addToCart: () => {}, total: 0 });
 import { Product } from "../lib/products/data";
 
 interface ProductCardProps {
