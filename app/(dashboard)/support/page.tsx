@@ -16,8 +16,7 @@ const tickets = [
 
 export default function SupportPage() {
   return (
-    <!-- DashboardLayout removed for build -->
-      <div className="space-y-6">
+    <div className="space-y-6">
         <div>
           <h1 className="text-2xl font-bold">Support</h1>
           <p className="text-gray-500">Get help and find answers</p>
