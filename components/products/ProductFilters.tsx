@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { categories } from "@/lib/products/data";
+import { categories } from "../lib/products/data";
 
 interface ProductFiltersProps {
   selectedCategory: string;
