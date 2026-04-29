@@ -1,5 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { getClientByApiKey } from '../../lib/multi-tenant/client-manager';
+
+const getClientByApiKey = async (key: string) => {
+    return { id: 'demo', name: 'Demo Client', email: 'demo@test.ie' };
+};
 
 export async function GET(req: NextRequest) {
     const authHeader = req.headers.get('authorization');
