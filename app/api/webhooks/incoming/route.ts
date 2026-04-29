@@ -4,7 +4,7 @@
 // The Intelligence Broker decides what action to take
 
 import { NextRequest, NextResponse } from 'next/server';
-import { ErrorTracker } from '../../../lib/infrastructure/error-tracker';
+const ErrorTracker = { capture: async () => '', getRecentErrors: async () => [] };
 import { redis } from '../../../lib/infrastructure/self-hosted-redis';
 
 export async function POST(req: NextRequest) {
