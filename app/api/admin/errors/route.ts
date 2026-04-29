@@ -3,7 +3,7 @@ import { NextResponse } from 'next/server';
 const ErrorTracker = { capture: async () => 'err_001', getRecentErrors: async () => [], getCriticalAlert: async () => null, clearCriticalAlert: async () => {} };
 
 export async function GET() {
-    const errors = await ErrorTracker.getRecentErrors(50);
+    const errors = await ErrorTracker.getRecentErrors();
     const critical = await ErrorTracker.getCriticalAlert();
     return NextResponse.json({
         recentErrors: errors,
