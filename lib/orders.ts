@@ -1,5 +1,5 @@
-import { supabase, supabaseAdmin } from '@/lib/supabase'
-import type { Order, OrderItem } from '@/types/database'
+import { supabase, supabaseAdmin } from './lib/supabase'
+import type { Order, OrderItem } from './types/database'
 
 export async function saveOrder(
   order: Omit<Order, 'created_at' | 'updated_at'>,
