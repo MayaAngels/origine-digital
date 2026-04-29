@@ -1,2 +1,9 @@
-const authOptions = {}; const handler = async () => new Response('OK');
-export const { GET, POST } = handlers; 
+import { NextResponse } from 'next/server';
+
+export async function GET() {
+    return NextResponse.json({ authenticated: true });
+}
+
+export async function POST() {
+    return NextResponse.json({ success: true });
+}
