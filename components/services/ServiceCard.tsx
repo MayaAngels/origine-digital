@@ -1,7 +1,7 @@
 ﻿"use client";
 
 import Link from "next/link";
-import { Service } from "@/lib/services/data";
+import { Service } from "../lib/services/data";
 
 interface ServiceCardProps {
   service: Service;
