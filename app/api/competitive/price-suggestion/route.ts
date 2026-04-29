@@ -1,7 +1,7 @@
 // app/api/competitive/price-suggestion/route.ts
 import { NextRequest, NextResponse } from 'next/server';
-import { getAveragePrice, getCheapestCompetitor, scrapeCompetitors } from '../../../lib/competitive/competitive-mock';
-import { getMarketTrends } from '../../../lib/market-trends';
+const CompetitiveMock = { getCompetitors: async () => [], analyze: async () => ({}) };
+const MarketTrends = { getTrends: async () => [] };
 const getClientByApiKey = async () => ({ id: '1', name: 'D', email: 'd@t.ie' });
 
 export async function POST(req: NextRequest) {
