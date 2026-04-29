@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { serviceCategories } from "@/lib/services/data";
+import { serviceCategories } from "../lib/services/data";
 
 interface ServiceFiltersProps {
   selectedCategory: string;
