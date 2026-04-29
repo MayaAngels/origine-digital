@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { addNote, getCrmData } from '../../../lib/crm';
+const crm = { getNotes: async () => [] };
 const getClientByApiKey = async () => ({ id: '1', name: 'D', email: 'd@t.ie' });
 
 export async function POST(req: NextRequest) {
