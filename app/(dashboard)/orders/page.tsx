@@ -2,6 +2,8 @@
 
 import { Search, Filter, Download, Eye } from "lucide-react";
 
+export const dynamic = 'force-dynamic'
+
 const orders = [
   { id: "ORD-001", date: "2025-04-10", total: 49, status: "Completed", items: 1, download: true },
   { id: "ORD-002", date: "2025-04-05", total: 29, status: "Processing", items: 1, download: false },
