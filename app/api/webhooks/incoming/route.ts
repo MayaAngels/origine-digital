@@ -5,7 +5,7 @@
 
 import { NextRequest, NextResponse } from 'next/server';
 const ErrorTracker = { capture: async () => '', getRecentErrors: async () => [] };
-import { redis } from '../../../lib/infrastructure/self-hosted-redis';
+
 
 export async function POST(req: NextRequest) {
     try {
