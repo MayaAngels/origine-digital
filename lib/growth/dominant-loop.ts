@@ -1,7 +1,7 @@
 ﻿// lib/growth/dominant-loop.ts
-import { generateProduct } from '@/lib/products/generator';
-import { publishToFeed } from '@/lib/social-feed/publisher';
-import { PricingEngine } from '@/lib/intelligence/pricing';
+import { generateProduct } from '../lib/products/generator';
+import { publishToFeed } from '../lib/social-feed/publisher';
+import { PricingEngine } from '../lib/intelligence/pricing';
 
 export async function runDominantLoop(niche: string) {
     // 1. Generate the best product for the niche
