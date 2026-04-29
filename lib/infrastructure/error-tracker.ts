@@ -2,7 +2,7 @@
 // Self-hosted error tracking – replaces Sentry
 // Logs errors to Postgres + Redis for real-time monitoring
 
-import { redis } from '@/lib/infrastructure/self-hosted-redis';
+import { redis } from '../lib/infrastructure/self-hosted-redis';
 
 interface ErrorEvent {
     id: string;
