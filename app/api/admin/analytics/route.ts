@@ -3,7 +3,7 @@
 // Queries your own Postgres event log
 
 import { NextRequest, NextResponse } from 'next/server';
-import { sql } from '../../../lib/postgres-stub'; // or your own Postgres client
+const sql = { query: async () => ({ rows: [] }) } as any;
 
 export async function GET(req: NextRequest) {
     const { searchParams } = new URL(req.url);
