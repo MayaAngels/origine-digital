@@ -1,8 +1,8 @@
 ﻿"use client";
 
 import Link from "next/link";
-import { useCart } from "@/contexts/CartContext";
-import { Product } from "@/lib/products/data";
+import { useCart } from "../contexts/CartContext";
+import { Product } from "../lib/products/data";
 
 interface ProductCardProps {
   product: Product;
