@@ -3,7 +3,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import fs from 'fs/promises';
 import path from 'path';
 const getClientByApiKey = async () => ({ id: '1', name: 'D', email: 'd@t.ie' });
-import { getExpectedOutcome } from '../../../lib/learning/learning-mock';
+const LearningMock = { learn: async () => {} };
 
 const SANDBOX_DIR = path.join(process.cwd(), 'data', 'sandbox');
 
