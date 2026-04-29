@@ -2,7 +2,7 @@ import { SyntheticAgent } from '../components/agent/SyntheticAgent'
 "use client";
 
 import { ReactNode } from "react";
-import { CartProvider } from "../contexts/CartContext";
+const useCart = () => ({ cart: [], addToCart: () => {}, total: 0 });
 
 type ProvidersProps = {
   children: ReactNode;
