@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { handleWebhook } from '../../../lib/services/stripe-mock';
-import { sendEmail } from '../../../lib/services/brevo-mock';
+const sendEmail = async () => true;
 
 export async function POST(req: NextRequest) {
     try {
