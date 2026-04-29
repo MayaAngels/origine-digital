@@ -2,7 +2,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { Service } from '../lib/pricing-data';
+import { Service } from '../../lib/pricing-data';
 
 export default function PricingPage() {
   const [services, setServices] = useState<Service[]>([]);
@@ -138,7 +138,7 @@ export default function PricingPage() {
 
                 {/* Nota adicional do serviço */}
                 <p className="text-center text-gray-500 text-sm mt-8">
-                  {require('../lib/pricing-data').serviceComparisons[currentService.id]?.nota || ''}
+                  {require('../../lib/pricing-data').serviceComparisons[currentService.id]?.nota || ''}
                 </p>
               </>
             )}
