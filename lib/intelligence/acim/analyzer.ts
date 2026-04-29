@@ -1,6 +1,6 @@
 ﻿// lib/intelligence/acim/analyzer.ts
-import { computeEthicalVector } from '@/lib/intelligence/asmi/ethical-vector';
-import { estimateATE } from '@/lib/intelligence/asmi/causal-oracle';
+import { computeEthicalVector } from '../../lib/intelligence/asmi/ethical-vector';
+import { estimateATE } from '../../lib/intelligence/asmi/causal-oracle';
 
 export async function analyzeCompetitorChanges(changes: any[]) {
     return changes.map(change => {
