@@ -1,8 +1,8 @@
 import "./globals.css";
 import { Providers } from "./providers";
-import { Header } from "@/components/layout/Header";
-import { Footer } from "@/components/layout/Footer";
-import { SyntheticAgent } from "@/components/agent/SyntheticAgent";
+import { Header } from "./components/layout/Header";
+import { Footer } from "./components/layout/Footer";
+import { SyntheticAgent } from "./components/agent/SyntheticAgent";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
