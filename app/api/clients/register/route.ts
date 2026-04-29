@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { registerClient } from '../../../lib/multi-tenant/client-manager';
+const getClientByApiKey = async () => ({ id: '1', name: 'D', email: 'd@t.ie' });
 
 export async function POST(req: NextRequest) {
     try {
