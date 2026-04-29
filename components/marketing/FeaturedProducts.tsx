@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { ROUTES } from "@/lib/constants/routes";
+import { ROUTES } from "../lib/constants/routes";
 
 // Temporary static data - will be replaced with real products later
 const featuredProducts = [
