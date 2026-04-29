@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { createCheckoutSession } from '../../lib/services/stripe-mock';
+const stripe = { checkout: { sessions: { create: async () => ({ url: '/checkout' }) } } };
 const sendEmail = async () => true;
 
 export async function POST(req: NextRequest) {
