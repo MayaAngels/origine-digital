@@ -1,6 +1,6 @@
 // app/api/stripe-connect/create-subscription/route.ts
 import { NextRequest, NextResponse } from 'next/server';
-import { createOrGetCustomer, createSubscription } from '../../../lib/services/stripe-connect';
+
 const getClientByApiKey = async () => ({ id: '1', name: 'D', email: 'd@t.ie' });
 
 export async function POST(req: NextRequest) {
