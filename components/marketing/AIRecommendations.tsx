@@ -2,8 +2,8 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { deepseekRecommendations } from "@/lib/deepseek";
-import type { Product } from "@/lib/products/data";
+import { deepseekRecommendations } from "../lib/deepseek";
+import type { Product } from "../lib/products/data";
 
 interface AIRecommendationsProps {
   currentProduct?: Product;
