@@ -1,9 +1,9 @@
 ﻿"use client";
 
 import Link from "next/link";
-import { ROUTES } from "@/lib/constants/routes";
-import { PUBLIC_NAV } from "@/lib/constants/nav";
-import { useCart } from "@/contexts/CartContext";
+import { ROUTES } from "../lib/constants/routes";
+import { PUBLIC_NAV } from "../lib/constants/nav";
+import { useCart } from "../contexts/CartContext";
 
 export function Header() {
   const { totalItems } = useCart();
