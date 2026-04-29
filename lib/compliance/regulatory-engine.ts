@@ -1,6 +1,6 @@
 ﻿// lib/compliance/regulatory-engine.ts
-import { watchRegulations } from '@/lib/compliance/watcher';
-import { updateEthicalInvariants } from '@/lib/intelligence/ethical-vector';
+import { watchRegulations } from '../lib/compliance/watcher';
+import { updateEthicalInvariants } from '../lib/intelligence/ethical-vector';
 
 export async function startRegulatoryLoop() {
     // Periodically check legal updates (GDPR, AI Act, etc.)
