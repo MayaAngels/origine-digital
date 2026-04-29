@@ -1,5 +1,5 @@
 ﻿// lib/growth/referral-engine.ts
-import { ThompsonSampler } from '@/lib/intelligence/bandit';
+import { ThompsonSampler } from '../lib/intelligence/bandit';
 
 interface ReferralReward {
     type: 'percentage' | 'fixed';
