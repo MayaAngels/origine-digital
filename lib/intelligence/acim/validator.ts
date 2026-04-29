@@ -1,6 +1,6 @@
 ﻿// lib/intelligence/acim/validator.ts
-import { simulateStrategy } from '@/lib/intelligence/simulation';
-import { MetaController } from '@/lib/intelligence/meta-controller';
+import { simulateStrategy } from '../../lib/intelligence/simulation';
+import { MetaController } from '../../lib/intelligence/meta-controller';
 
 export async function validateAndDeploy(proposal: any): Promise<boolean> {
     // 1. Simulate the new capability in a sandbox
