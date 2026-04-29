@@ -2,7 +2,7 @@
 // Replaces @upstash/redis – connects to your own Redis server
 //
 // Usage:
-//   import { redis } from '@/lib/infrastructure/self-hosted-redis';
+//   import { redis } from '../lib/infrastructure/self-hosted-redis';
 //   await redis.set('key', 'value');
 //   const val = await redis.get('key');
 
