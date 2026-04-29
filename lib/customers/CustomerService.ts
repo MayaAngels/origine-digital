@@ -1,7 +1,7 @@
 // lib/customers/CustomerService.ts
 // Gerencia clientes, visitantes e marketing automation
 
-import { supabase } from '@/lib/supabase'
+import { supabase } from '../lib/supabase'
 
 export interface Customer {
   id: string
