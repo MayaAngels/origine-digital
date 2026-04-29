@@ -1,4 +1,4 @@
-import { EVENT_NAMES } from "@/lib/constants/events";
+import { EVENT_NAMES } from "../lib/constants/events";
 
 export type EventName = typeof EVENT_NAMES[keyof typeof EVENT_NAMES];
 
