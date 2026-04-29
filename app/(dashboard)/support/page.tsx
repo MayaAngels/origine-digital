@@ -2,7 +2,7 @@
 
 import { MessageCircle, HelpCircle, BookOpen, Mail, Clock, CheckCircle } from "lucide-react";
 
-export const dynamic = 'force-dynamic'
+export const dynamic = 'force-dynamic';
 
 const faqs = [
   { q: "How do I download my purchased products?", a: "Go to the Downloads page and click the download button next to your purchased product." },
