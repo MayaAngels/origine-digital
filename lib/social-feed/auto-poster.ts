@@ -1,7 +1,7 @@
 ﻿// lib/social-feed/auto-poster.ts
-import { MarketIntel } from '@/lib/intelligence/market';
-import { PricingEngine } from '@/lib/intelligence/pricing';
-import { redis } from '@/lib/infrastructure/self-hosted-redis';
+import { MarketIntel } from '../lib/intelligence/market';
+import { PricingEngine } from '../lib/intelligence/pricing';
+import { redis } from '../lib/infrastructure/self-hosted-redis';
 
 export class AutoPoster {
     private market: MarketIntel;
