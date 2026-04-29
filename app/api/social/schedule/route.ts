@@ -3,7 +3,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import fs from 'fs/promises';
 import path from 'path';
 const getClientByApiKey = async () => ({ id: '1', name: 'D', email: 'd@t.ie' });
-import { ScheduledPost } from '../../../lib/social/social-mock';
+
 
 async function getScheduledDir(clientId: string): Promise<string> {
     const dir = path.join(process.cwd(), 'data', 'clients_data', clientId, 'social', 'scheduled');
