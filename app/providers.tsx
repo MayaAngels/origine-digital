@@ -10,9 +10,8 @@ const CartContext = React.createContext({
     total: 0,
 });
 
-export function CartProvider({ children }: { children: React.ReactNode }) {
+function CartProviderComponent({ children }: { children: React.ReactNode }) {
     const [cart, setCart] = React.useState<any[]>([]);
-    
     const addToCart = (item: any) => setCart([...cart, item]);
     const removeFromCart = (id: string) => setCart(cart.filter(i => i.id !== id));
     const clearCart = () => setCart([]);
@@ -27,4 +26,13 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
 
 export function useCart() {
     return React.useContext(CartContext);
+}
+
+// The wrapper that layout.tsx imports
+export default function Providers({ children }: { children: React.ReactNode }) {
+    return (
+        <CartProviderComponent>
+            {children}
+        </CartProviderComponent>
+    );
 }
