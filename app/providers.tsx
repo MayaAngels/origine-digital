@@ -1,4 +1,4 @@
-import { CartProvider as CartProviderComponent } from "@/components/cart/CartProvider";
+import { CartProvider as CartProviderComponent } from "";
 
 export default function Providers({ children }: { children: React.ReactNode }) {
     return (
