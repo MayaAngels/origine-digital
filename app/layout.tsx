@@ -5,6 +5,8 @@ import { Footer } from "../components/layout/Footer";
 import { SyntheticAgent } from "../components/agent/SyntheticAgent";
 import type { Metadata } from "next";
 
+export const dynamic = 'force-dynamic';
+
 export const metadata: Metadata = {
   title: "Origine Digital",
   description: "Digital products, services, and done-for-you business systems.",
