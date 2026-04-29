@@ -2,7 +2,7 @@
 
 import { Wallet, Plus, History, ArrowUpRight, ArrowDownRight } from "lucide-react";
 
-export const dynamic = 'force-dynamic'
+export const dynamic = 'force-dynamic';
 
 const transactions = [
   { id: 1, type: "deposit", amount: 50, description: "Initial deposit", date: "2025-04-01", status: "completed" },
