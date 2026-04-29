@@ -1,5 +1,5 @@
 ﻿// lib/growth/cultural-dna.ts
-import { MarketIntel } from '@/lib/intelligence/market';
+import { MarketIntel } from '../lib/intelligence/market';
 
 export async function instantiateMarket(country: string, language: string, currency: string) {
     const intel = new MarketIntel(global.redis);
