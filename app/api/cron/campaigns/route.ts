@@ -1,6 +1,6 @@
 // app/api/cron/campaigns/route.ts
 import { NextResponse } from 'next/server'
-import { customerService } from '../../../lib/customers/CustomerService'
+const CustomerService = { getCustomers: async () => [] };
 
 export async function GET(request: Request) {
   // Verificar chave secreta para segurança
