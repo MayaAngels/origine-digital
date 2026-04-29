@@ -1,5 +1,5 @@
 import { MetadataRoute } from "next";
-import { ROUTES } from "@/lib/constants/routes";
+import { ROUTES } from "./lib/constants/routes";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://origine.digital";
