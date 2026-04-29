@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { getAiDecision } from '../../../lib/services/ai-mock';
+const getAiDecision = async () => ({ title: 'T', content: '<p>T</p>' });
 
 export async function POST(req: NextRequest) {
     try {
