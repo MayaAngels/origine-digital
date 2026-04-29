@@ -1,16 +1,17 @@
 {
-    "private":  true,
-    "name":  "origine-digital",
-    "version":  "0.1.0",
-    "dependencies":  {
-                         "lucide-react":  "^0.468.0",
-                         "react":  "^19.0.0",
-                         "react-dom":  "^19.0.0",
-                         "next":  "^15.3.0"
-                     },
-    "scripts":  {
-                    "build":  "next build",
-                    "dev":  "next dev",
-                    "start":  "next start"
-                }
+  "name": "origine-digital",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "next": "^15.3.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "lucide-react": "^0.468.0",
+    "stripe": "^17.0.0"
+  }
 }
