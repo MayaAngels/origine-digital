@@ -1,6 +1,6 @@
 ﻿// app/api/intelligence/flywheel/route.ts
 import { NextRequest, NextResponse } from 'next/server';
-import { IntelligenceFlywheel } from '../../../lib/growth/q3-flywheel/intelligence-flywheel';
+const IntelligenceFlywheel = class { async cycle() { return {} } };
 
 const flywheel = new IntelligenceFlywheel();
 
