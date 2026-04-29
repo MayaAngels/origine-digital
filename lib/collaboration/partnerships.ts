@@ -1,5 +1,5 @@
 ﻿// lib/collaboration/partnerships.ts
-import { redis } from '@/lib/infrastructure/self-hosted-redis';
+import { redis } from '../lib/infrastructure/self-hosted-redis';
 
 export interface Team {
     id: string;
