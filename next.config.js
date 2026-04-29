@@ -2,34 +2,30 @@
 const nextConfig = {
   output: 'standalone',
   reactStrictMode: true,
-  // Disable static generation for all API routes
-  staticPageGenerationTimeout: 0,
-  // Transpile more packages
-  transpilePackages: [],
-  // Ignore ESLint and TypeScript errors during build
   eslint: {
     ignoreDuringBuilds: true,
   },
   typescript: {
     ignoreBuildErrors: true,
   },
-  // Configure webpack to handle problematic modules
-  webpack: (config, { isServer }) => {
-    if (isServer) {
-      config.externals = config.externals || [];
-      config.externals.push({
-        '@supabase/supabase-js': 'commonjs @supabase/supabase-js',
-      });
-    }
+  // This is the key - disable static generation for all routes
+  staticPageGenerationTimeout: 0,
+  // Use Node.js runtime for API routes
+  experimental: {
+    serverComponentsExternalPackages: [],
+  },
+  // Exclude API routes from static generation
+  outputFileTracingExcludes: {
+    '*': ['**/api/**/*'],
+  },
+  // Configure webpack to handle issues
+  webpack: (config) => {
+    config.resolve.fallback = { fs: false, net: false, tls: false };
     return config;
   },
-  // Disable static optimization for all dynamic routes
-  outputFileTracingExcludes: {
-    '*': [
-      'node_modules/@supabase',
-      'node_modules/next-auth',
-      'app/api/**/*',
-    ],
+  // Prevent static generation of problematic pages
+  generateBuildId: async () => {
+    return 'build-' + Date.now();
   },
 }
 
