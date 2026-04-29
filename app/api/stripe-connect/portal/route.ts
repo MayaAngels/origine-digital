@@ -1,6 +1,6 @@
 // app/api/stripe-connect/portal/route.ts
 import { NextRequest, NextResponse } from 'next/server';
-import { createCustomerPortalSession } from '../../../lib/services/stripe-connect';
+
 const getClientByApiKey = async () => ({ id: '1', name: 'D', email: 'd@t.ie' });
 
 export async function GET(req: NextRequest) {
