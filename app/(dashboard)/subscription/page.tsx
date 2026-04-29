@@ -2,6 +2,8 @@
 
 import { CreditCard, Zap, Crown, TrendingUp, Check } from "lucide-react";
 
+export const dynamic = 'force-dynamic'
+
 const tiers = [
   { name: "Seed", price: 0, features: ["Basic access", "Community support", "1 product download/month"], current: false },
   { name: "Growth", price: 79, features: ["Full access", "Priority support", "Strategy sessions", "10% cashback"], current: true },
