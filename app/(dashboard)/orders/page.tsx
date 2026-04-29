@@ -1,6 +1,5 @@
 "use client";
 
-import { DashboardLayout } from "../../components/dashboard/DashboardLayout";
 import { Search, Filter, Download, Eye } from "lucide-react";
 
 const orders = [
