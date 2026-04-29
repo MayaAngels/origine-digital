@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import client from 'prom-client';
+const prometheus = { Registry: class {}, collectDefaultMetrics: () => {} };
 
 // Registar métricas básicas
 const collectDefaultMetrics = client.collectDefaultMetrics;
