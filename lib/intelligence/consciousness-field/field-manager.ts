@@ -1,5 +1,5 @@
 // lib/intelligence/consciousness-field/field-manager.ts
-// v3 — Uses TWITTER_BEARER_TOKEN and NEWS_API_KEY from environment
+// v3 — Uses TWITTER_BEARER_TOKEN and NEWS_API_KEY from Netlify environment
 
 interface ConsciousnessState {
     globalAwareness: number;
@@ -22,7 +22,6 @@ export class ConsciousnessField {
         sources: {}
     };
 
-    // Fetch from Twitter/X using Bearer Token
     async fetchTwitterSentiment(keyword: string = 'ireland business'): Promise<{volume: number; sentiment: number}> {
         const bearerToken = process.env.TWITTER_BEARER_TOKEN;
         if (!bearerToken) {
@@ -31,31 +30,28 @@ export class ConsciousnessField {
         }
         try {
             const response = await fetch(
-                `https://api.twitter.com/2/tweets/search/recent?query=${encodeURIComponent(keyword)}&max_results=20&tweet.fields=lang`,
+                `https://api.twitter.com/2/tweets/search/recent?query=${encodeURIComponent(keyword)}&max_results=10&tweet.fields=lang`,
                 { headers: { Authorization: `Bearer ${bearerToken}` } }
             );
             if (!response.ok) return { volume: 0, sentiment: 0 };
             const data = await response.json();
             const tweets = data.data || [];
-            const volume = Math.min(1, tweets.length / 20);
-            // Simple sentiment: count positive vs negative words
-            const positive = ['growth', 'profit', 'success', 'innovation', 'opportunity', 'launch', 'new', 'best', 'great', 'excellent'];
-            const negative = ['crash', 'loss', 'fail', 'crisis', 'problem', 'bad', 'worst', 'terrible', 'bankrupt'];
-            let posCount = 0, negCount = 0;
+            const volume = Math.min(1, tweets.length / 10);
+            const positive = ['growth', 'profit', 'success', 'innovation', 'opportunity', 'launch', 'new', 'best', 'great'];
+            const negative = ['crash', 'loss', 'fail', 'crisis', 'problem', 'bad', 'worst', 'terrible'];
+            let pos = 0, neg = 0;
             tweets.forEach((t: any) => {
                 const text = (t.text || '').toLowerCase();
-                positive.forEach(w => { if (text.includes(w)) posCount++; });
-                negative.forEach(w => { if (text.includes(w)) negCount++; });
+                positive.forEach(w => { if (text.includes(w)) pos++; });
+                negative.forEach(w => { if (text.includes(w)) neg++; });
             });
-            const sentiment = (posCount + negCount) > 0 ? (posCount - negCount) / (posCount + negCount) : 0;
+            const sentiment = (pos + neg) > 0 ? (pos - neg) / (pos + neg) : 0;
             return { volume, sentiment };
         } catch (e) {
-            console.warn('[Consciousness] Twitter fetch failed:', e);
             return { volume: 0, sentiment: 0 };
         }
     }
 
-    // Fetch from NewsAPI
     async fetchNews(keyword: string = 'ireland business technology'): Promise<{volume: number; sentiment: number}> {
         const apiKey = process.env.NEWS_API_KEY;
         if (!apiKey || apiKey === 'demo') {
@@ -64,50 +60,40 @@ export class ConsciousnessField {
         }
         try {
             const response = await fetch(
-                `https://newsapi.org/v2/everything?q=${encodeURIComponent(keyword)}&sortBy=publishedAt&pageSize=20&apiKey=${apiKey}`
+                `https://newsapi.org/v2/everything?q=${encodeURIComponent(keyword)}&sortBy=publishedAt&pageSize=10&apiKey=${apiKey}`
             );
             if (!response.ok) return { volume: 0, sentiment: 0 };
             const data = await response.json();
             const articles = data.articles || [];
-            const volume = Math.min(1, articles.length / 20);
-            const positiveWords = ['growth', 'profit', 'success', 'innovation', 'opportunity', 'launch', 'new', 'best', 'great', 'excellent', 'rise', 'gain'];
-            const negativeWords = ['crash', 'loss', 'fail', 'crisis', 'problem', 'bad', 'worst', 'terrible', 'bankrupt', 'decline', 'drop'];
-            let posCount = 0, negCount = 0;
+            const volume = Math.min(1, articles.length / 10);
+            const posWords = ['growth', 'profit', 'success', 'innovation', 'opportunity', 'launch'];
+            const negWords = ['crash', 'loss', 'fail', 'crisis', 'problem', 'decline'];
+            let pos = 0, neg = 0;
             articles.forEach((a: any) => {
                 const text = (a.title + ' ' + (a.description || '')).toLowerCase();
-                positiveWords.forEach(w => { if (text.includes(w)) posCount++; });
-                negativeWords.forEach(w => { if (text.includes(w)) negCount++; });
+                posWords.forEach(w => { if (text.includes(w)) pos++; });
+                negWords.forEach(w => { if (text.includes(w)) neg++; });
             });
-            const total = posCount + negCount;
-            const sentiment = total > 0 ? (posCount - negCount) / total : 0;
+            const total = pos + neg;
+            const sentiment = total > 0 ? (pos - neg) / total : 0;
             return { volume, sentiment };
         } catch (e) {
-            console.warn('[Consciousness] News fetch failed:', e);
             return { volume: 0, sentiment: 0 };
         }
     }
 
-    // Google Trends RSS (no key needed)
     async fetchGoogleTrends(keyword: string = 'digital products'): Promise<{volume: number; sentiment: number}> {
         try {
-            const response = await fetch(
-                `https://trends.google.com/trends/trendingsearches/daily/rss?geo=IE`
-            );
+            const response = await fetch(`https://trends.google.com/trends/trendingsearches/daily/rss?geo=IE`);
             const text = await response.text();
             const mentions = (text.match(new RegExp(keyword, 'gi')) || []).length;
-            const volume = Math.min(1, mentions / 10);
-            const sentiment = mentions > 5 ? 0.3 : 0;
-            return { volume, sentiment };
+            return { volume: Math.min(1, mentions / 10), sentiment: mentions > 5 ? 0.3 : 0 };
         } catch (e) {
-            console.warn('[Consciousness] Trends fetch failed:', e);
             return { volume: 0, sentiment: 0 };
         }
     }
 
-    // Update the field with all sources
     async update(): Promise<ConsciousnessState> {
-        console.log('[Consciousness] Updating from live APIs...');
-        
         const [twitter, news, trends] = await Promise.all([
             this.fetchTwitterSentiment('ireland business digital'),
             this.fetchNews('ireland business technology'),
@@ -116,14 +102,12 @@ export class ConsciousnessField {
         
         const totalVolume = (twitter.volume + news.volume + trends.volume) / 3;
         const avgSentiment = (twitter.sentiment + news.sentiment + trends.sentiment) / 3;
-        const noveltyIndex = totalVolume * Math.abs(avgSentiment);
         
         this.state.globalAwareness = Math.round((this.state.globalAwareness * 0.85 + totalVolume * 0.15) * 1000) / 1000;
         this.state.marketSentiment = Math.round((this.state.marketSentiment * 0.8 + avgSentiment * 0.2) * 1000) / 1000;
         
-        if (noveltyIndex > 0.6) {
+        if (totalVolume * Math.abs(avgSentiment) > 0.6) {
             this.state.enlightenmentEvents++;
-            console.log('[Consciousness] Enlightenment event detected!');
         }
         
         this.state.sources = {
@@ -132,7 +116,6 @@ export class ConsciousnessField {
             trends: { volume: trends.volume, sentiment: trends.sentiment }
         };
         this.state.lastUpdated = new Date().toISOString();
-        
         return this.getState();
     }
 
