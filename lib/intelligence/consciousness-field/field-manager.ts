@@ -1,4 +1,3 @@
-@'
 // lib/intelligence/consciousness-field/field-manager.ts
 // v4 — 14 free sources + Twitter + NewsAPI
 
@@ -43,14 +42,3 @@ export class ConsciousnessField {
         return { ...this.state, sources: { ...this.state.sources }, topKeywords: [...this.state.topKeywords] };
     }
 }
-'@ | Set-Clipboard
-Write-Host "✅ New field manager copied to clipboard!" -ForegroundColor Green
-Write-Host ""
-Write-Host "📋 NOW DO THIS:" -ForegroundColor Cyan
-Write-Host "1. Go to: https://github.com/MayaAngels/origine-digital/edit/main/lib/intelligence/consciousness-field/field-manager.ts" -ForegroundColor White
-Write-Host "2. Select ALL text (Ctrl+A)" -ForegroundColor White
-Write-Host "3. Paste (Ctrl+V) — replaces everything" -ForegroundColor White
-Write-Host "4. Commit message: 'UPDATE Field Manager with 14 free sources'" -ForegroundColor White
-Write-Host "5. Click 'Commit changes'" -ForegroundColor White
-Write-Host ""
-Write-Host "🚀 Then trigger deploy: https://app.netlify.com/sites/fabulous-figolla-8e0216/deploys" -ForegroundColor Cyan
