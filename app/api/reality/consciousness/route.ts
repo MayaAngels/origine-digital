@@ -5,7 +5,11 @@ import { ConsciousnessField } from '@/lib/intelligence/consciousness-field/field
 const field = new ConsciousnessField();
 
 export async function GET() {
-    // In production, update field from real data
-    field.update({ socialVolume: 0.5, sentimentScore: 0.2, noveltyIndex: 0.3 });
-    return NextResponse.json(field.getState());
+    try {
+        const state = await field.update();
+        return NextResponse.json(state);
+    } catch (error) {
+        // Fallback: return cached state
+        return NextResponse.json(field.getState());
+    }
 }
