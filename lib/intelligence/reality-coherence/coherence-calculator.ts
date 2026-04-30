@@ -1,20 +1,21 @@
-// lib/intelligence/reality-coherence/coherence-calculator.ts
-// Measures reality‑coherence of a strategy or market state.
-
 export interface CoherenceInput {
-    symmetryScore: number;      // Noether conservation alignment
-    entanglementScore: number;  // Bell non‑local correlation
-    paradoxLevel: number;       // Contradiction density
-    consciousnessAlignment: number; // Collective awareness match
+    symmetryScore: number;
+    entanglementScore: number;
+    paradoxLevel: number;
+    consciousnessAlignment: number;
 }
 
 export function calculateRealityCoherence(input: CoherenceInput): number {
-    const { symmetryScore, entanglementScore, paradoxLevel, consciousnessAlignment } = input;
-    // Fórmula recalibrada: produto das forças, penalizado pelo paradoxo de forma proporcional
-    const alignmentProduct = symmetryScore * entanglementScore * consciousnessAlignment;
-    const paradoxPenalty = 1 - (paradoxLevel * 0.5);  // paradoxo reduz até 50%
-    const raw = alignmentProduct * paradoxPenalty;
-    return Math.min(1, Math.max(0, raw));
+    const s = input.symmetryScore;
+    const e = input.entanglementScore;
+    const p = input.paradoxLevel;
+    const c = input.consciousnessAlignment;
+    const product = s * e * c;
+    const penalty = 1 - p * 0.5;
+    const score = product * penalty;
+    if (score > 1) return 1;
+    if (score < 0) return 0;
+    return score;
 }
 
 export function coherenceGrade(score: number): string {
