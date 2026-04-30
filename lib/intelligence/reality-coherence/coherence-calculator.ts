@@ -10,9 +10,10 @@ export interface CoherenceInput {
 
 export function calculateRealityCoherence(input: CoherenceInput): number {
     const { symmetryScore, entanglementScore, paradoxLevel, consciousnessAlignment } = input;
-    // Coherence formula: product of alignments, penalised by paradox
-    const raw = (symmetryScore * entanglementScore * consciousnessAlignment) /
-                (1 + paradoxLevel * 2);
+    // Fórmula recalibrada: produto das forças, penalizado pelo paradoxo de forma proporcional
+    const alignmentProduct = symmetryScore * entanglementScore * consciousnessAlignment;
+    const paradoxPenalty = 1 - (paradoxLevel * 0.5);  // paradoxo reduz até 50%
+    const raw = alignmentProduct * paradoxPenalty;
     return Math.min(1, Math.max(0, raw));
 }
 
