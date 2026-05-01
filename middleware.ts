@@ -1,14 +1,23 @@
+// middleware.ts - Protect routes
 import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
 
 export function middleware(request: NextRequest) {
-    const response = NextResponse.next();
-    response.headers.set('X-Frame-Options', 'DENY');
-    response.headers.set('X-Content-Type-Options', 'nosniff');
-    response.headers.set('Referrer-Policy', 'strict-origin-when-cross-origin');
-    return response;
+    const token = request.cookies.get('auth_token')?.value;
+    const isAuthPage = request.nextUrl.pathname === '/login' || request.nextUrl.pathname === '/register';
+    const isDashboardPage = request.nextUrl.pathname.startsWith('/dashboard');
+    
+    if (isDashboardPage && !token) {
+        return NextResponse.redirect(new URL('/login', request.url));
+    }
+    
+    if (isAuthPage && token) {
+        return NextResponse.redirect(new URL('/dashboard', request.url));
+    }
+    
+    return NextResponse.next();
 }
 
 export const config = {
-    matcher: '/((?!_next/static|_next/image|favicon.ico).*)',
+    matcher: ['/dashboard/:path*', '/login', '/register']
 };
